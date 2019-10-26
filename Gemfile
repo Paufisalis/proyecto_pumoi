@@ -8,6 +8,8 @@ gem 'rails', '~> 6.0.0'
 gem 'devise'
 gem 'activeadmin'
 gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
