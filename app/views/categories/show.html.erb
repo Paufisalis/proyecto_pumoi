@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<% @products.each_slice(3) do |three_product| %>
+<div class="card-deck">
+  <% three_product.each do |product| %>
+  <div class="card">
+    
+    <div class="card-body">
+      <h5 class="card-title"><%= product.name %></h5>
+      <p class="card-text"><%= product.brand %></p>
+      <p class="card-text"><%= product.format %></p>
+        <%= link_to "ver mas", product_path(product), class: 'btn btn-success'  %>
+    </div>
+
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+
+
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
