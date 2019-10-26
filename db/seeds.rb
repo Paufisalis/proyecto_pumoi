@@ -64,3 +64,6 @@ Cellar.destroy_all
   Product.create(name: 'Orégano Entero', brand: 'Doña Juanita', format: 'Bolsa 20gr, Bolsa 1kg', category: Category.find_by_name('condimentos'))
   Product.create(name: 'Comino Molido', brand: 'Doña Juanita', format: 'Bolsa 15gr, Bolsa 1kg', category: Category.find_by_name('condimentos'))
   Product.create(name: 'Ajo en Polvo', brand: 'Doña Juanita', format: 'Bolsa 15gr, Bolsa 1kg', category: Category.find_by_name('condimentos'))
+
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

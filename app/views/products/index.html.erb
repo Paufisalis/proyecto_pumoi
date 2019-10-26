@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>image</th>
       <th>Name</th>
       <th>Brand</th>
       <th>Format</th>
@@ -18,10 +19,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+
         <td><%= product.name %></td>
         <td><%= product.brand %></td>
         <td><%= product.format %></td>
-        <td><%= product.photo %></td>
+        <td><%= image_tag product.image.variant(resize: "100x100") if product.image.attached? %></td>
         <td><%= product.cellar_id %></td>
         <td><%= product.category_id %></td>
         <td><%= link_to 'Show', product %></td>

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+ <%= form.label :image %>
+ <%= form.file_field :image %>
+</div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
@@ -26,10 +31,7 @@
     <%= form.text_field :format %>
   </div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo %>
-  </div>
+
 
   <div class="field">
     <%= form.label :cellar_id %>

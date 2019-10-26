@@ -1,23 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Categories</h2>
+
+<h5>Categorias</h5>
 
 <table>
   <thead>
-
   </thead>
 
   <tbody>
-
     <% @categories.each_slice(5) do |five_category| %>
     <div class="card-deck">
       <% five_category.each do |category| %>
       <div class="card">
         <div class="card-body">
+        <p><%= image_tag category.image.variant(resize: "100x100") if category.image.attached? %></p>
         <h5><%= category.name %></h5>
-        <h5><%= link_to 'Show', category %></h5>
-        <h5><%= link_to 'Edit', edit_category_path(category) %></h5>
-        <h5><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+        <h6><%= link_to 'Show', category, class:'btn btn-secondary btn-sm' %></h6>
       </div>
       </div>
       <% end %>
@@ -25,9 +23,6 @@
     <% end %>
   </tbody>
 </table>
-
-
-
 
 <br>
 

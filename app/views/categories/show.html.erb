@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% if @category.image.attached? %>
+<p>
+  <strong>Image:</strong>
+  <br>
+  <%= image_tag @category.image %>
+</p>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
@@ -9,8 +17,9 @@
 <div class="card-deck">
   <% three_product.each do |product| %>
   <div class="card">
-    
+
     <div class="card-body">
+      <p><%= image_tag product.image.variant(resize: "300x300") if product.image.attached? %></p>
       <h5 class="card-title"><%= product.name %></h5>
       <p class="card-text"><%= product.brand %></p>
       <p class="card-text"><%= product.format %></p>
