@@ -8,7 +8,7 @@ gem 'rails', '~> 6.0.0'
 gem 'devise'
 gem 'activeadmin'
 gem 'image_processing', '~> 1.2'
-gem "aws-sdk-s3", require: false
+gem 'paypal-sdk-rest'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
@@ -53,6 +53,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+group :production do
+gem "aws-sdk-s3", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -17,18 +17,30 @@
 <div class="card-deck">
   <% three_product.each do |product| %>
   <div class="card">
-
     <div class="card-body">
       <p><%= image_tag product.image.variant(resize: "300x300") if product.image.attached? %></p>
       <h5 class="card-title"><%= product.name %></h5>
-      <p class="card-text"><%= product.brand %></p>
-      <p class="card-text"><%= product.format %></p>
-        <%= link_to "ver mas", product_path(product), class: 'btn btn-success'  %>
-    </div>
+      <p class="card-text">Marca: <%= product.brand %></p>
+      <p class="card-text">Formato: <%= product.format %></p>
+      <p class="card-text">Precio: <%= product.price %></p>
 
+      <%= form_with do |form| %>
+
+      <div class="field">
+        <%= form.label :quantity %>
+        <%= form.text_field :quantity %>
+      </div>
+      <% end %>
+      <%= link_to 'Agregar al carro', product_orders_path(product), class: 'btn btn-success float-right', method: :post %>
+      <%= link_to "ver mas", product_path(product), class: 'btn btn-success'  %>
+    
+    </div>
   </div>
   <% end %>
+
 </div>
+<br>
+<br>
 <% end %>
 
 

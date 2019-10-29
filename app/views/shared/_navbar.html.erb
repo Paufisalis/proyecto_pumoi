@@ -1,35 +1,54 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Quienes Somos</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Productos
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <h7><a class="dropdown-item" href="#">Encurtidos</a></h7>
-                <h7><a class="dropdown-item" href="#">Salsas</a></h7>
-                <h7><a class="dropdown-item" href="#">Aceitunas</a></h7>
-                <h7><a class="dropdown-item" href="#">Frutos Secos</a></h7>
-                <h7><a class="dropdown-item" href="#">Condimentos</a></h7>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a>
-            </li>
-        </ul>
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Quienes Somos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Productos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <h7><a class="dropdown-item" href="#">Encurtidos</a></h7>
+          <h7><a class="dropdown-item" href="#">Salsas</a></h7>
+          <h7><a class="dropdown-item" href="#">Aceitunas</a></h7>
+          <h7><a class="dropdown-item" href="#">Frutos Secos</a></h7>
+          <h7><a class="dropdown-item" href="#">Condimentos</a></h7>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
     </div>
     <div class="mx-auto order-0">
-          <%= image_tag "logopumoi.png", width:"100px" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <%= image_tag "logopumoi.png", width:"100px" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= orders_index_path %>">Mi carro <span class="sr-only">(current)</span></a>
+        </li>
+        <% if !user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Registrarse',  new_user_registration_path, class: 'nav-link'%>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link"><%= current_user.name %></a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <% end %>
+        </li>
+      </ul>
     </div>
-</nav>
+  </nav>

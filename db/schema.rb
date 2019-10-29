@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_164951) do
+ActiveRecord::Schema.define(version: 2019_10_28_194757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 2019_10_26_164951) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "billings", force: :cascade do |t|
+    t.string "code"
+    t.string "payment_method"
+    t.decimal "amount", precision: 5, scale: 2
+    t.string "currency"
+    t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_billings_on_order_id"
+    t.index ["user_id"], name: "index_billings_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -75,6 +88,20 @@ ActiveRecord::Schema.define(version: 2019_10_26_164951) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "payed"
+    t.integer "quantity"
+    t.integer "price"
+    t.bigint "cellar_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["cellar_id"], name: "index_orders_on_cellar_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "brand"
@@ -82,9 +109,45 @@ ActiveRecord::Schema.define(version: 2019_10_26_164951) do
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "product_id", null: false
+    t.bigint "cellar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cellar_id"], name: "index_stocks_on_cellar_id"
+    t.index ["product_id"], name: "index_stocks_on_product_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "business_name"
+    t.string "name"
+    t.string "last_name"
+    t.string "rut"
+    t.string "phone"
+    t.string "address"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "billings", "orders"
+  add_foreign_key "billings", "users"
+  add_foreign_key "orders", "cellars"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "stocks", "cellars"
+  add_foreign_key "stocks", "products"
 end

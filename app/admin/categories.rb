@@ -5,7 +5,7 @@ ActiveAdmin.register Category do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name
+   permit_params :name, :image
   #
   # or
   #
@@ -14,5 +14,11 @@ ActiveAdmin.register Category do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  form do |f|
+   f.semantic_errors # Muestra errores en el formulario
+   f.inputs # Construye un input para cada atributo del modelo
+   f.input :image, as: :file
+   f.actions # Agrega los botones Submit y Cancel
+  end
+
 end
