@@ -8,9 +8,9 @@
        <h5>Mapa del Sitio</h5>
        <ul class="list-unstyled text-small">
          <li><a class="text-muted" href="<%= categories_path %>">Inicio</a></li>
-         <li><a class="text-muted" href="#">Quienes Somos</a></li>
+         <li><a class="text-muted" href="<%= about_show_path %>">Quienes Somos</a></li>
          <li><a class="text-muted" href="#">Productos</a></li>
-         <li><a class="text-muted" href="#">Contacto</a></li>
+         <li><a class="text-muted" href="<%= contact_show_path %>">Contacto</a></li>
         </ul>
      </div>
      <div class="col-6 col-md">
