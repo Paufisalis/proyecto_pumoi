@@ -7,7 +7,7 @@
      <div class="col-6 col-md">
        <h5>Mapa del Sitio</h5>
        <ul class="list-unstyled text-small">
-         <li><a class="text-muted" href="#">Inicio</a></li>
+         <li><a class="text-muted" href="<%= categories_path %>">Inicio</a></li>
          <li><a class="text-muted" href="#">Quienes Somos</a></li>
          <li><a class="text-muted" href="#">Productos</a></li>
          <li><a class="text-muted" href="#">Contacto</a></li>

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   get 'orders/create'
   get 'orders/clean'
   get 'orders/index'
-  devise_for :users
+  
+  devise_for :users, controllers: {
+   omniauth_callbacks: 'users/omniauth_callbacks'
+ }
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :categories do
