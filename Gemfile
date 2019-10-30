@@ -10,6 +10,8 @@ gem 'activeadmin'
 gem 'image_processing', '~> 1.2'
 gem 'paypal-sdk-rest'
 gem 'omniauth-facebook'
+gem 'chartkick'
+gem 'groupdate'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
