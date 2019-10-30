@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_194757) do
+ActiveRecord::Schema.define(version: 2019_10_29_194625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_194757) do
     t.integer "price"
     t.bigint "cellar_id", null: false
     t.bigint "product_id", null: false
+    t.bigint "billing_id"
+    t.index ["billing_id"], name: "index_orders_on_billing_id"
     t.index ["cellar_id"], name: "index_orders_on_cellar_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -144,6 +146,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_194757) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "billings", "orders"
   add_foreign_key "billings", "users"
+  add_foreign_key "orders", "billings"
   add_foreign_key "orders", "cellars"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"

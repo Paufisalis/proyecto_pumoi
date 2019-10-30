@@ -27,13 +27,13 @@
       <%= form_with do |form| %>
 
       <div class="field">
-        <%= form.label :quantity %>
+        <%= form.label :cantidad %>
         <%= form.text_field :quantity %>
       </div>
       <% end %>
       <%= link_to 'Agregar al carro', product_orders_path(product), class: 'btn btn-success float-right', method: :post %>
       <%= link_to "ver mas", product_path(product), class: 'btn btn-success'  %>
-    
+
     </div>
   </div>
   <% end %>

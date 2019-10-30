@@ -16,10 +16,19 @@ ActiveAdmin.register Product do
   # end
 
   form do |f|
+
    f.semantic_errors # Muestra errores en el formulario
    f.inputs # Construye un input para cada atributo del modelo
    f.input :image, as: :file
    f.actions # Agrega los botones Submit y Cancel
   end
-
+  index do
+    column :id
+    column :name
+    column :brand
+    column :format
+    column :category
+    column :price
+    actions
+end
 end
