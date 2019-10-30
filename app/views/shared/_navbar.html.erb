@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
     <ul class="navbar-nav mr-auto">
@@ -5,7 +7,7 @@
         <a class="nav-link" href="<%= categories_path %>">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Quienes Somos</a>
+        <a class="nav-link" href="<%= about_show_path %>">Quienes Somos</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,7 +21,7 @@
           <h7><a class="dropdown-item" href="#">Condimentos</a></h7>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" href="<%= contact_show_path %>">Contacto</a>
         </li>
       </ul>
     </div>
@@ -49,6 +51,10 @@
           <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           <% end %>
         </li>
+        <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
       </ul>
     </div>
   </nav>

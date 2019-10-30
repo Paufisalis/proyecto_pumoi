@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   get 'orders/create'
   get 'orders/clean'
   get 'orders/index'
-  
+  get 'about/show'
+  get 'contact/show'
+
+
+
+
   devise_for :users, controllers: {
    omniauth_callbacks: 'users/omniauth_callbacks'
  }
