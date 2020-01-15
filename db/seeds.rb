@@ -40,6 +40,8 @@ AdminUser.destroy_all
 
   Product.create(name: 'Crema de Ají', brand: 'Pumoi', format: 'bolsa 200gr, bolsa 1kg', category: Category.find_by_name('salsas'))
   Product.create(name: 'Mostaza', brand: 'Pumoi', format: 'bolsa 200gr, bolsa 1kg', category: Category.find_by_name('salsas'))
+  Product.create(name: 'Ketchup', brand: 'Pumoi', format: 'bolsa 200gr, bolsa 1kg', category: Category.find_by_name('salsas'))
+  Product.create(name: 'Salsa de Ají', brand: 'Pumoi', format: 'bolsa 1kg', category: Category.find_by_name('salsas'))
 
 
 
