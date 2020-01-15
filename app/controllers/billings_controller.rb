@@ -18,8 +18,8 @@ class BillingsController < ApplicationController
         payer: {
           payment_method: "paypal" },
           redirect_urls: {
-            return_url: "http://localhost:3000/billings/execute",
-            cancel_url: "http://localhost:3000/" },
+            return_url: "https://fast-lake-19591.herokuapp.com/billings/execute",
+            cancel_url: "https://fast-lake-19591.herokuapp.com/" },
             transactions: [{
               item_list: {
                 items: items
