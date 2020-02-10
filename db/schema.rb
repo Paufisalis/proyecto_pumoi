@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_014245) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "payed"
+    t.boolean "payed", default: false
     t.integer "quantity"
     t.integer "price"
     t.bigint "cellar_id", null: false
