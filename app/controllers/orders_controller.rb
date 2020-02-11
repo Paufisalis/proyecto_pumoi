@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
     p = Product.find(params[:product_id])
     o = Order.find_or_create_by(user: current_user, product: p, payed: false, price: p.price)
     o.quantity ? o.quantity += 1 : o.quantity = 1
-    o.cellar = Cellar.first
     if o.save
       redirect_to category_path(p.category), notice: "El producto ha sido agregado al carro."
     else
